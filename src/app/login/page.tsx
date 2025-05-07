@@ -4,14 +4,14 @@ export const dynamic = 'force-dynamic';
 import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
-  const handleGoogleSignIn = () => {
-    signIn('google');
+  const handleGoogleLogin = () => {
+    signIn('google', { callbackUrl: '/dashboard' });
   };
 
   return (
     <div>
-      <h1>Login</h1>
-      <button onClick={handleGoogleSignIn}>Sign in with Google</button>
+      <h>Login</h1>
+      <button onClick={handleGoogleLogin}>Sign in with Google</button>
     </div>
   );
 }
