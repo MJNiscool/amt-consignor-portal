@@ -1,5 +1,5 @@
 import './globals.css';
-import { SessionProvider } from 'next-auth/react';
+import ClientProviders from '@/components/ClientProviders';
 
 export const metadata = {
   title: 'AMT Consignor Portal',
@@ -10,9 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <SessionProvider>
-          {children}
-        </SessionProvider>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
