@@ -4,22 +4,22 @@ import { getFirestore, Firestore } from 'firebase/firestore';
 import { getFunctions, Functions, httpsCallable } from 'firebase/functions';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDYUqZooxl3QTngKFp44d2GBRDtaoWX_ek",
-  authDomain: "consign-demo-mjn.firebaseapp.com",
-  projectId: "consign-demo-mjn",
-  storageBucket: "consign-demo-mjn.firebasestorage.app",
-  messagingSenderId: "389067563398",
-  appId: "1:389067563398:web:6ba6c750048607813a8c07",
-  measurementId: "G-WLPPT9YKNS"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID!,
 };
 
 let app: FirebaseApp;
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
-  console.log("Firebase initialized successfully.");
+  console.log("✅ Firebase initialized successfully.");
 } else {
   app = getApp();
-  console.log("Firebase already initialized.");
+  console.log("✅ Firebase already initialized.");
 }
 
 const auth: Auth = getAuth(app);
